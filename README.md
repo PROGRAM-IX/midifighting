@@ -5,11 +5,18 @@ Developed for me to use a [DJ Tech Tools MIDI Fighter](https://store.djtechtools
 
 ### Requirements
 
+For pip-accessible requirements, you should be able to do:
+```bash
+pip install -r requirements.txt
+```
+
 #### *Python*
 I've been using Python 3.8 for this because that's what I have locally, but I think it would work fine with 2.7 or maybe some earlier versions if they are supported by the libraries. The Py3 `print()` function is imported from `__future__` so there should be no code changes required for 2.7.
 
 #### *[vJoy](http://vjoystick.sourceforge.net/site/index.php/download-a-install/download)*
-This is the tool that allows you to create and 'feed' inputs to a virtual game controller. From their own site: "vJoy is a device driver that bridges the gap between any device that is not a joystick and an application that requires a joystick. If you develop an application for windows that requires user physical input you should consider incorporating vJoy into your product."
+This is the tool that allows you to create and 'feed' inputs to a virtual game controller. From their own site: "vJoy is a device driver that bridges the gap between any device that is not a joystick and an application that requires a joystick. If you develop an application for windows that requires user physical input you should consider incorporating vJoy into your product." 
+
+*Note: You may need to set up a vJoy Device on your computer using the 'Configure vJoy' program included with vJoy. The default seems to be one joystick (analogue, X/Y axis) and 8 buttons. For this program, it needs to have one joystick (analogue, X/Y axis) and 10 or more buttons. If you need access to LT/RT/L3/R3 etc., add more buttons and mappings as needed.*
 
 #### *[pyvjoy](https://github.com/tidzo/pyvjoy)*
 This is the tool that exposes a Python interface to the vJoy devices. It uses the DLLs installed by the vJoy installer linked above. I haven't had any performance issues with it that might be attributed to Python, gaming feels fairly spot on.
