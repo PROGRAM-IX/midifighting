@@ -82,6 +82,7 @@ So to give a somewhat HitBox-like layout, I set it up like this (`NA` = not used
 [U ][NA][NA][NA]
 ```
 For playing I hold it rotated about 45deg to the left, like a diamond with the Up button (36/low C) at the bottom. This is just my first layout, but it works fine so far. There is room to do the same arrangement of directions on the bottom row instead, if you want to have your wrists very close together, but I prefer to have them apart.
+As a note, LB/LT are usually not required in the typical fighting game layout, which suits me as I don't have anywhere logical to put them here. You could include them easily by adding more entries to the mapping.
 
 ### Other notes/improvements
 Most importantly: *feedback or PRs welcome!*
@@ -97,3 +98,6 @@ As discussed above, it's fairly easy to change the hardcoded layout to match wha
 
 #### Doing weird _other stuff_ with the MIDI inputs
 We are already getting in these cool MIDI inputs, what else could we do with them? Perhaps play sounds, as they were designed to do?
+
+#### Troubleshooting 
+If everything appears to run fine, but you aren't getting the inputs you expect, there are a number of `print()` statements in the code that you can uncomment to try and track down where things are being dropped. I want to improve this aspect of the code as well in future. Probably just using a DEBUG logger and a means to enable it from the CLI.
