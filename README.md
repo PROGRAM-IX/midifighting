@@ -62,7 +62,32 @@ I used [this tool](http://www.planetpointy.co.uk/joystick-test-application/) to 
 *Note: It is very helpful if the game you're going to play allows multiple controllers to be connected, and whichever one is active to work! If the game strongly depends on only a single joystick being plugged in, it may fail to see the vJoy one when you have other joystick devices configured on your PC.*
 
 ### Layouts
-For now the layout is hardcoded but can be changed easily enough by users. I'd like to add a JSON or similar method for loading in different layouts, but it may require more thought in how the directions and buttons are separated. In any case:
+#### Introduction
+For now the layout is hardcoded but can be changed easily enough by users. Here's what it looks like at present:
+```python
+MIDI_NOTE_MAP = {
+    '48': ('l',), # Left
+    '44': ('d',), # Down
+    '40': ('r',), # Right
+    '36': ('u',), # Up
+    '50': (9, 'back'), # Back button
+    '51': (10, 'start'), # Start button
+    '45': (1, 'x'), # X
+    '46': (4, 'y'), # Y
+    '47': (6, 'rb'), # RB
+    '41': (2, 'a'), # A
+    '42': (3, 'b'), # B
+    '43': (8, 'rt'), # RT
+    # Uncomment these if you need them
+    # '49': (11, 'l3'), # Left stick click
+    # '37': (12, 'r3'), # Right stick click
+    # '38': (5, 'lb'), # LB
+    # '39': (7, 'lt'), # LT
+}
+```
+The dict key is a string representation of the MIDI note number, and the following tuple either just contains a direction code (if for direction input) or the joystick button number _and_ the string name of the button. The plan is to optionally print out these button names as they are activated, for debugging. Depending on your MIDI controller, you may want to use different MIDI notes as keys for this dictionary. Also, because of the restrictive size of the MIDI Fighter, I have left four buttons unmapped - you could uncomment these lines and map the buttons to whatever MIDI notes you like.
+
+I'd like to add a JSON or similar method for loading in different layouts, but it may require more thought in how the directions and buttons are separated.
 
 #### MIDI Fighter for Xbox-compatible fighting games
 
