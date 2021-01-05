@@ -43,6 +43,11 @@ MIDI_NOTE_MAP = {
     '41': (2, 'a'), # A
     '42': (3, 'b'), # B
     '43': (8, 'rt'), # RT
+    # Uncomment these if you need them
+    # '49': (11, 'l3'), # Left stick click
+    # '37': (12, 'r3'), # Right stick click
+    # '38': (5, 'lb'), # LB
+    # '39': (7, 'lt'), # LT
 }
 
 # This keeps track of which directions are currently pressed,
