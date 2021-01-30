@@ -39,7 +39,7 @@ If you're using a MIDI Fighter as well, in theory it will be as simple as runnin
 ```bash
 python midifighting.py
 ```
-from the source directory, once you have installed the requirements. The program will prompt you to pick a MIDI input device to use - they are usually helpfully named. Here's what it looks like for me:
+from the source directory, once you have installed the requirements. The program will prompt you to pick a MIDI input device to use - they are usually helpfully named. You can also forward the MIDI inputs to another MIDI output device (even back to the same one, but untested). Here's what it looks like for me:
 ```bash
 $ py -u midifighting.py
 Available MIDI ports:
@@ -48,13 +48,20 @@ Available MIDI ports:
 [1] loopMIDI Port 1
 
 Select MIDI input port (Control-C to exit): 0
+Do you want to forward the MIDI input on through another port? y
+Available MIDI ports:
+
+[0] Microsoft GS Wavetable Synth 0
+[1] Midi Fighter 3D 1
+[2] loopMIDI Port 2
+
+Select MIDI output port (Control-C to exit): 2
 ```
 
-If all is well the MIDI input will be opened, the vJoy device will be initialised, and you'll be able to start sending notes/game inputs!
+If all is well the MIDI input (and optionally output) will be opened, the vJoy device will be initialised, and you'll be able to start sending notes/game inputs!
 
 ```bash
-Using port Midi Fighter 3D 0, vJoy device <pyvjoy.vjoydevice.VJoyDevice object at 0x000001A1CF354C40>
-Running. Press Control-C to exit.
+Using input port Midi Fighter 3D 0, vJoy device <pyvjoy.vjoydevice.VJoyDevice object at 0x0000022A0D644C40>, output port loopMIDI Port 2
 ```
 
 I used [this tool](http://www.planetpointy.co.uk/joystick-test-application/) to confirm that my device was sending joystick inputs through vJoy, then started up my game and was able to play as normal. 
@@ -122,7 +129,7 @@ Analogue stick inputs were the ones I could find and make work easily, but I thi
 As discussed above, it's fairly easy to change the hardcoded layout to match whatever controller you have, but I'd like to lift that out of the code and make it swappable easily with a CLI argument or similar.
 
 #### Doing weird _other stuff_ with the MIDI inputs
-We are already getting in these cool MIDI inputs, what else could we do with them? Perhaps play sounds, as they were designed to do?
+We are already getting in these cool MIDI inputs, what else could we do with them? Perhaps play sounds, as they were designed to do? For now, we can optionally send them on to another port.
 
 #### Troubleshooting 
 If everything appears to run fine, but you aren't getting the inputs you expect, there are a number of `print()` statements in the code that you can uncomment to try and track down where things are being dropped. I want to improve this aspect of the code as well in future. Probably just using a DEBUG logger and a means to enable it from the CLI.
