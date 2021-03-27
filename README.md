@@ -98,7 +98,7 @@ I'd like to add a JSON or similar method for loading in different layouts, but i
 
 #### MIDI Fighter for Xbox-compatible fighting games
 
-This is the first 'page' of the MIDI Fighter, which by default starts on C0/C1 (MIDI note 36). On the MIDI Fighter, the lowest note is on the bottom right, and notes increase in value across the rows and up the columns.
+This is the first 'page' of the MIDI Fighter, which by default starts on C0/C1 (MIDI note 36). On the MIDI Fighter, the lowest note is on the bottom left, and notes increase in value across the rows to the right and up the columns.
 ```
 [48][49][50][51]
 [44][45][46][47]
